@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 150 26% 15%;
+    --card: 40 33% 97%;
+    --card-foreground: 150 26% 15%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 150 26% 15%;
+    --primary: 0 0% 18%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 136 13% 50%;
+    --secondary-foreground: 40 33% 97%;
+    --muted: 40 20% 92%;
+    --muted-foreground: 150 10% 40%;
+    --accent: 6 24% 73%;
+    --accent-foreground: 150 26% 15%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 33% 97%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 136 13% 50%;
+    --radius: 0.125rem;
+
+    /* Floradizm Custom Tokens */
+    --warm-cream: #FAF7F2;
+    --deep-forest: #1A2E22;
+    --sage-green: #6B8F71;
+    --dusty-rose: #C9A9A6;
+    --earthen-charcoal: #2D2D2D;
+    --light-sage: #EFF4F0;
+    --border-subtle: #E8E2D9;
+  }
+
+  .dark {
+    --background: 150 26% 10%;
+    --foreground: 40 33% 95%;
+    --card: 150 26% 12%;
+    --card-foreground: 40 33% 95%;
+    --popover: 150 26% 12%;
+    --popover-foreground: 40 33% 95%;
+    --primary: 40 33% 95%;
+    --primary-foreground: 150 26% 10%;
+    --secondary: 136 13% 40%;
+    --secondary-foreground: 40 33% 95%;
+    --muted: 150 20% 18%;
+    --muted-foreground: 150 10% 60%;
+    --accent: 6 20% 60%;
+    --accent-foreground: 40 33% 95%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 33% 95%;
+    --border: 150 15% 22%;
+    --input: 150 15% 22%;
+    --ring: 136 13% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    background-color: var(--warm-cream);
+    color: var(--deep-forest);
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Noto Serif KR', 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--deep-forest);
+  }
+}
+
+@layer utilities {
+  .font-serif-kr {
+    font-family: 'Noto Serif KR', 'Cormorant Garamond', serif;
+  }
+  .font-sans-kr {
+    font-family: 'Noto Sans KR', 'Inter', sans-serif;
+  }
+  .text-deep-forest { color: var(--deep-forest); }
+  .text-sage-green { color: var(--sage-green); }
+  .text-dusty-rose { color: var(--dusty-rose); }
+  .text-warm-cream { color: var(--warm-cream); }
+  .bg-warm-cream { background-color: var(--warm-cream); }
+  .bg-deep-forest { background-color: var(--deep-forest); }
+  .bg-sage-green { background-color: var(--sage-green); }
+  .bg-dusty-rose { background-color: var(--dusty-rose); }
+  .bg-light-sage { background-color: var(--light-sage); }
+  .border-subtle { border-color: var(--border-subtle); }
+  .precision-line { border-color: var(--border-subtle); border-width: 0.5px; }
+}
+
+/* Flower petal burst animation */
+@keyframes petalBurst {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(calc(-50% + calc(cos(var(--angle)) * 40px)), calc(-50% + calc(sin(var(--angle)) * 40px))) scale(0.3); }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--warm-cream); }
+::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--sage-green); }
+
+/* Transition override - snap transitions */
+* { transition-duration: 100ms !important; }
+.no-transition { transition: none !important; }
