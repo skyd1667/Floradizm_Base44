@@ -1,0 +1,135 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name_ko": {
+      "type": "string",
+      "description": "\uc81c\ud488\uba85 (\ud55c\uad6d\uc5b4)"
+    },
+    "name_en": {
+      "type": "string",
+      "description": "Product name (English)"
+    },
+    "description_ko": {
+      "type": "string",
+      "description": "\uc81c\ud488 \uc124\uba85 (\ud55c\uad6d\uc5b4)"
+    },
+    "description_en": {
+      "type": "string",
+      "description": "Product description (English)"
+    },
+    "price": {
+      "type": "number",
+      "description": "Price in KRW"
+    },
+    "original_price": {
+      "type": "number",
+      "description": "Original price before discount (KRW)"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "hydroponics",
+        "smart_lighting",
+        "eco_pots",
+        "sensors",
+        "nutrients",
+        "accessories",
+        "bundles"
+      ],
+      "description": "\uc81c\ud488 \uce74\ud14c\uace0\ub9ac"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Product image URLs"
+    },
+    "stock_quantity": {
+      "type": "number",
+      "description": "\uc7ac\uace0 \uc218\ub7c9"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "\ud310\ub9e4 \ud65c\uc131\ud654 \uc5ec\ubd80"
+    },
+    "is_featured": {
+      "type": "boolean",
+      "default": false,
+      "description": "\uba54\uc778 \ub178\ucd9c \uc5ec\ubd80"
+    },
+    "is_sale": {
+      "type": "boolean",
+      "default": false,
+      "description": "\uc138\uc77c \uc5ec\ubd80"
+    },
+    "discount_percent": {
+      "type": "number",
+      "description": "\ud560\uc778\uc728 (%)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "\uac80\uc0c9 \ud0dc\uadf8"
+    },
+    "specs": {
+      "type": "object",
+      "description": "\uae30\uc220 \uc0ac\uc591 (JSON)"
+    },
+    "weight_kg": {
+      "type": "number",
+      "description": "\ubb34\uac8c (kg)"
+    },
+    "supplier_name": {
+      "type": "string",
+      "description": "\uacf5\uae09\uc5c5\uccb4\uba85 (\ub0b4\ubd80\uc6a9)"
+    },
+    "supplier_url": {
+      "type": "string",
+      "description": "\uc18c\uc2f1 URL (\ub0b4\ubd80\uc6a9)"
+    },
+    "fulfillment_method": {
+      "type": "string",
+      "enum": [
+        "dropship",
+        "self_fulfill"
+      ],
+      "description": "\ubc30\uc1a1 \ubc29\uc2dd"
+    },
+    "rating": {
+      "type": "number",
+      "description": "\ud3c9\uade0 \ud3c9\uc810"
+    },
+    "review_count": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "name_ko",
+    "price",
+    "category"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {},
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
